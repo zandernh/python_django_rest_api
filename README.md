@@ -1,19 +1,19 @@
-# 📝 Django Blogpost REST API
+# 🧩 Python Django REST API — User Management
 
-A lightweight and fully functional REST API built with Django and the Django REST Framework (DRF).
-This API allows you to create, read, update, delete, and filter blog posts using clean REST endpoints.
+A simple and clean Django REST API designed for storing, retrieving, updating, and deleting user information.
+This project demonstrates foundational backend skills using Django and Django REST Framework.
 
---- 
+---
 
-## 🚀 Features
+## 🎯 Features
 
-- 📄 Create new blog posts
-- 📚 Retrieve all posts
-- 🔍 Filter blog posts by title (case-insensitive)
-- ✏️ Update existing posts
-- ❌ Delete individual posts
-- 🧹 Delete all blog posts at once
-- ⚡ Built using Django & Django REST Framework
+- 👤 Create new users
+- 📋 Retrieve all users
+- 🔍 Retrieve a single user by ID
+- ✏️ Update user information
+- ❌ Delete individual users
+- 💾 Data stored using SQLite (default Django database)
+- ⚡ Built entirely with Django & Django REST Framework
 
 ---
 
@@ -21,36 +21,28 @@ This API allows you to create, read, update, delete, and filter blog posts using
 
 - Python
 - Django 5.2
-- Django REST Framework (DRF)
-- SQLite3 (default development database)
+- Django REST Framework
+- SQLite3
 
 ---
 
 ## 🔗 API Endpoints
 
-### 📚 Get All Blog Posts / Create New Post
+### 📋 Get All Users
 
-GET  /blogposts/
+GET /users/
 
-POST /blogposts/
+### ➕ Create a New User
 
-### 🧹 Delete ALL Blog Posts
+POST /users/create/
 
-DELETE /blogposts/
+### 🔎 Retrieve / ✏️ Update / ❌ Delete a User
 
-### ✏️ Retrieve / Update / Delete a Single Post
+GET    /users/<id>
 
-GET     /blogposts/<id>/
+PUT    /users/<id>
 
-PUT     /blogposts/<id>/
-
-PATCH   /blogposts/<id>/
-
-DELETE  /blogposts/<id>/
-
-### 🔍 Filter Blog Posts by Title
-
-GET /blogposts/filter/?title=keyword
+DELETE /users/<id>
 
 ---
 
@@ -58,17 +50,17 @@ GET /blogposts/filter/?title=keyword
 
 ### 1. Clone the repository
 
-git clone git@github.com:zandernh/python_django_rest_api_blogpost.git
+git clone git@github.com:zandernh/python_django_rest_api.git
 
-cd python_django_rest_api_blogpost
+cd python_django_rest_api
 
 ### 2. Create and activate a virtual environment
 
 python -m venv venv
 
-venv\Scripts\activate   (Windows)
+venv\Scripts\activate     (Windows)
 
-source venv/bin/activate (Mac/Linux)
+source venv/bin/activate  (Mac/Linux)
 
 ### 3. Install dependencies
 
@@ -78,17 +70,27 @@ pip install -r requirements.txt
 
 python manage.py migrate
 
-### 5. Start the development server
+### 5. Run the development server
 
 python manage.py runserver
 
 ---
 
-## 📜 License
+## 🧠 How It Works
+
+- The User model stores simple user attributes: name and age
+- The serializer handles validation and conversion to JSON
+- The API uses function-based views (api_view) to manage CRUD logic
+- Endpoints follow clean RESTful design
+- Errors return standard HTTP responses (400, 404, etc.)
+
+---
+
+## 📄 License
 
 This project is open-source and free to use.
 
---- 
+---
 
 ## 🙋‍♂️ Author
 
